@@ -46,7 +46,7 @@ As a user, I want the ability to...
 ## Wireframes / Screenshots
 
 
-![wireframes1](/Users/briantaylor/code/triviagame-project1/FE101BBC-5FD1-488A-8A84-73A7D545FC38.png)
+![wireframes1](/Users/briantaylor/code/triviagame-project1/screenshot.png)
 
 
 ## Psuedocode
