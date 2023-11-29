@@ -17,13 +17,10 @@ Each Question will have the question text, possible answers, and the correct ans
   reset 
 
 
- Project Name
+Movie Trivia Funtime
 
 ## Overview
-
-Describe your project in a few brief sentences. The description should be short and sweet, covering the basics of the project, a brief history of the project, and a list of technologies used in the project. Sometimes this portion contains a picture for added effect, like a screenshot, or an image related to the overall idea. Here's an example:
-
-Your descriptions should be a little longer than the example above, but not so long that you describe every single aspect of the project.
+Its a trivia game. Players answer a series of movie-related questions, randomly picked from a predefined sets. The game tracks the player's score and progress through different questions. At the end of the game, players are presented with their final score and the option to play again. 
 
 ## User Stories
 
