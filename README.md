@@ -57,14 +57,17 @@ As a user, I want the ability to...
 -Initialize gameState  
 - Set up game. 
 - Create game questions
+- create game anwsers 
 - create Array of gameQuestions 
 - Each Question contains the question text,
-- possible answers, and the correct answer. 
-
-- create start game 
-
-
-
+- possible answers, and the correct answer.
+- function to start game
+- reset handler 
+- function for showing question
+- function for showing awnsers
+- event listeners for the buttons
+- create buttons
+- end game screen
 
 
 
@@ -97,3 +100,7 @@ totalScore
 5) Handle a player clicking a square
 
 6) Handle a player clicking the replay button
+
+
+
+Im suppose to define each var and constant and event listener before even getting the project approved?
