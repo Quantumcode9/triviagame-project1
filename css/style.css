@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+
+
+game-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  overflow: hidden;
+}
+
+
+.btn:hover {
+    background-color: #a9a9aa;
+}
