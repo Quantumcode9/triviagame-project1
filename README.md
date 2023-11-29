@@ -98,6 +98,3 @@ totalScore
 
 6) Handle a player clicking the replay button
 
-
-
-Im suppose to define each var and constant and event listener before even getting the project approved?
