@@ -4,68 +4,96 @@
 
 /*----- constants -----*/
 //array of questions
-//nested array of awnsers 
+//nested array of answers 
 //to stop later headaches; an array of strings,
 
 const normalQUESTIONS = [
     {
     questionText: "What was the first feature-length animated movie ever released?",
-    answerOptions: ["Dunbo", "Toy Story", "Snow White and the Seven Dwarfs" ,"Fantasia"],
-    correctAwnser: "Snow White and the Seven Dwarfs"
+    answerOptions: ["Dumbo", "Toy Story", "Snow White and the Seven Dwarfs" ,"Fantasia"],
+    correctAnswer: "Snow White and the Seven Dwarfs"
     },
     {
     questionText: "Who directed Kill Bill, Pulp Fiction, and Once Upon a Time in Hollywood?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: "Quentin Tarantino"
+    answerOptions: ["Quentin Tarantino", "Martin Scorsese", "Steven Spielberg", "Christopher Nolan"],
+    correctAnswer: "Quentin Tarantino"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "Who portrayed the Joker in The Dark Knight?",
+    answerOptions:  ["Jared Leto", "Jack Nicholson", "Heath Ledger", "Joaquin Phoenix"],
+    correctAnswer: "Heath Ledger"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "What is the highest grossing movie of all time?",
+    answerOptions: ["Avengers: Endgame", "Titanic", "Avatar" ,"Barbie"],
+    correctAnswer: "Avatar"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "What color pill does Neo take in The Matrix",
+    answerOptions: ["Green", "Red", "Blue" ,"Black"],
+    correctAnswer: "Red"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "Name the movie that this iconic quote comes from: “Youre gonna need a bigger boat.”",
+    answerOptions: ["The Titanic", "Cast Away", "" ,"Jaws"],
+    correctAnswer: "Jaws"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "Who voices Woody the Cowboy in the Toy Story movie franchise?",
+    answerOptions: ["Woody Allen", "Tom Hanks", "Tim Allen" ,"Clint Eastwood"],
+    correctAnswer: "Tom Hanks"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "What is the name of the Hotel in The Shining?",
+    answerOptions: ["The Stanley", "The Dolphin", "The Overlook" ,"The Hilton"],
+    correctAnswer: "The Overlook"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "Which actor plays the main character in Scott Pilgrim Vs. The World?",
+    answerOptions: ["Chris Evans", "Micheal Cera", "Jonah Hill" ,"Seth Rogan"],
+    correctAnswer: "Micheal Cera"
     },
     {
-    questionText: "?",
-    answerOptions: ["", "", "" ,""],
-    correctAwnser: ""
+    questionText: "How many Infinity Stones are there in Avengers: Endgame?",
+    answerOptions: ["Five", "Four", "Six" , "Thanos was right"],
+    correctAnswer: "Six" 
     },
-
-
+    { 
+    questionText: "Who directed The Dark Knight?",
+    answerOptions: ["Christopher Nolan", "James Cameron", "Wes Anderson" ,"Jordan Peele"],
+    correctAnswer: "Christopher Nolan"    
+},
+{
+    questionText: "What is the name of the kingdom in Disney's 'Frozen'",
+    answerOptions: ["Arendelle", "Corona", "Atlantica" ,"Agrabah"],
+    correctAnswer: "Arendelle"
+},
+{
+    questionText: "Which actor played Jack in 'Titanic'?",
+    answerOptions: ["Brad Pitt", "Tom Cruise", "Leonardo DiCaprio" ,"Johnny Depp"],
+    correctAnswer: "Leonardo DiCaprio"
+},
+{
+    questionText: "Who directed the movie 'Jurassic Park'?",
+    answerOptions: ["George Lucas", "Ridley Scott", "James Cameron" ,"Steven Spielberg"],
+    correctAnswer: "Steven Spielberg"
+},
+{
+    questionText: "In 'Inception', which item is used by Cobb as a totem?",
+    answerOptions: ["A briefcase", "A spinning top", "A golden coin" ,"A totem?"],
+    correctAnswer: "A spinning top"
+},
+{
+    questionText: "What was Johnny Depp's first movie appearance?",
+    answerOptions: ["Edward Scissorhands", "A Nightmare on Elm Street", "Donnie Brasco", "Cry-Baby"],
+    correctAnswer: "A Nightmare on Elm Street"
+},
+{
+    questionText: "Before 'Twilight,' Robert Pattinson appeared in 'Harry Potter and the Goblet of Fire' as what character?",
+    answerOptions: ["Draco Malfoy", "Cedric Diggory", "Ron Weasley", "Sirius Black"],
+    correctAnswer: "Cedric Diggory"
+},
 ];
-const hardQUESTIONS = []
-//array of strings for awnsers 
-//correct awnsers
-
-
 /*----- state variables -----*/
 
 //display score
@@ -103,5 +131,5 @@ const hardQUESTIONS = []
 //check to see if the awnser in correct, updates the score 
 //move to next question
 //function end
-
+//lose condition, if you get more that three wrong restart
 //
