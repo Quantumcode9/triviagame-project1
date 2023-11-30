@@ -3,11 +3,13 @@
 
 
 /*----- constants -----*/
+
+
 //array of questions
 //nested array of answers 
 //to stop later headaches; an array of strings,
 
-const normalQUESTIONS = [
+const QUESTIONS = [
     {
     questionText: "What was the first feature-length animated movie ever released?",
     answerOptions: ["Dumbo", "Toy Story", "Snow White and the Seven Dwarfs" ,"Fantasia"],
@@ -97,6 +99,10 @@ const normalQUESTIONS = [
 /*----- state variables -----*/
 
 //display score
+let questionIndex = 0;
+let score = 0;
+
+
 //question number
 //current question
 //current awnsers
@@ -106,6 +112,13 @@ const normalQUESTIONS = [
 
 /*----- cached elements  -----*/
 
+const questionEl = document.getElementById('question');
+const answerButtonsEl = document.getElementById('answer-buttons');
+const startButton = document.getElementById('start-btn');
+const nextButton = document.getElementById('next-btn')
+const restartButton = document.getElementById('restart-button')
+const scoreText = document.getElementById('result-text')
+const quitButton = document.getElementById('')
 //buttons 
 //start button
 //next question button
@@ -120,16 +133,51 @@ const normalQUESTIONS = [
 /*----- event listeners -----*/
 
 //start the game
+
+document.getElementById('start-btn').addEventListener('click', startGame)
 //awnser click
+//
 //
 
 
 /*----- functions -----*/
-//function to start ganme
+//function to start game
+function startGame() {
+    questionIndex = 0;
+    score = 0
+    showQuestion(questionIndex)
+}
+
 //function to display the current question
 //function to handle awnsers
+
+function showQuestion(index) {
+const question = QUESTIONS[index];
+questionEl.innerText = question.questionText;
+answerButtonsEl.innerHTML = '';
+//need forEach option 
+question.answerOptions.forEach(option => {
+const button = document.createElement('button');
+button.innerText = option;
+button.classList.add('btn', 'answer-btn')
+button.addEventListener('click', ()=> handleAnswer(option));
+
+answerButtonsEl.appendChild(button);
+    });
+}
+//............................
+
+
+
+
 //check to see if the awnser in correct, updates the score 
 //move to next question
 //function end
 //lose condition, if you get more that three wrong restart
 //
+
+/*----- constants -----*/
+/*----- state variables -----*/
+/*----- cached elements  -----*/
+/*----- event listeners -----*/
+/*----- functions -----*/
