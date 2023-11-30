@@ -5,12 +5,64 @@
 /*----- constants -----*/
 //array of questions
 //nested array of awnsers 
-const normalQUESTIONS = [
-    questionText: "What was the first feature-length animated movie ever released?",
-    answerOptions: []
-]
+//to stop later headaches; an array of strings,
 
-//nested array of awnsers 
+const normalQUESTIONS = [
+    {
+    questionText: "What was the first feature-length animated movie ever released?",
+    answerOptions: ["Dunbo", "Toy Story", "Snow White and the Seven Dwarfs" ,"Fantasia"],
+    correctAwnser: "Snow White and the Seven Dwarfs"
+    },
+    {
+    questionText: "Who directed Kill Bill, Pulp Fiction, and Once Upon a Time in Hollywood?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: "Quentin Tarantino"
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+    {
+    questionText: "?",
+    answerOptions: ["", "", "" ,""],
+    correctAwnser: ""
+    },
+
+
+];
+const hardQUESTIONS = []
+//array of strings for awnsers 
 //correct awnsers
 
 
