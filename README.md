@@ -78,7 +78,7 @@ As a user, I want the ability to...
 
  /*----- state variables -----*/
 
-gameState: [] //array
+gameState: 
 indexOfQuestions
 totalQuestions 
 totalScore
