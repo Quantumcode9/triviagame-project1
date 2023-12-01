@@ -211,7 +211,7 @@ function handleNextQuestion() {
 
 //figure out how to randomize questions
 
-///javascript/how-to-randomize-shuffle-a-javascript-array.html 
+//https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
 
 function shuffleArray(arr) {
     for (let i = arr.length -1; i > 0; i--) {
