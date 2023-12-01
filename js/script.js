@@ -193,10 +193,10 @@ function handleAnswer(selectedAnswer) {
 
 // add function to display the current SCORE
 // add function to display the current QUESTION NUMBER
-// add function to display REPLY text "correct" or "incorrect
+// add function to display REPLY text "Correct!" or "incorrect"
 
-// set TIMEOUT to 1 second and then call -
-//function to handle next question
+// set TIMEOUT to 1 second and then call--
+//function to handle NEXT question
 function handleNextQuestion() {
     //move to next question
     if (questionIndex < QUESTIONS.length) {
