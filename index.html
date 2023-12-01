@@ -11,7 +11,7 @@
     </header>
     <main id = "game-container" class= "game-off">
         <section id = "question-container" class="hidden">
-            <h2 id = "question">Question here</h2>
+            <h2 id = "question">Click Start To Begin</h2>
             <div id = "answer-buttons" class="btn-grid">
                 <!-- <button class="btn">answer 1</button>
                 <button class="btn">answer 2</button>
@@ -21,19 +21,20 @@
         </section>
     </main>
         <button id = "start-btn" class="btn">Start</button>
-        <section id = "result-container" class="hidden">
+        <!-- <section id = "result-container" class="hidden"> -->
+            <section id = "result-container">
             <div id = "result-text">You scored <span id="score">""</scoreText></div>
         </section>
 
-    
+        <div id="reply"></div>
 
     <footer id = "footer">
-        <button id = "next-btn" class="btn">Next Question</button>
-        <button id = "restart-btn" class="btn">Try Again</button>
-        <button id = "quit-btn" class="btn">Give Up</button>
+        <button id = "next-btn" class="hidden">Next Question</button>
+        <button id = "restart-btn" class="btn">Restart</button>
+        <button id = "quit-btn" class="hidden">Give up</button>
     </footer>
 
-    <scriprt src="js/script.js"></scriprt>
+    <script src="js/script.js"></script>
 </head>
 </body>
 </html>

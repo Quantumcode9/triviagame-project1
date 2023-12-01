@@ -20,13 +20,54 @@ header{
     overflow: hidden;
 }
 
+#question-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    grid-template-columns:;
+}
+
+
+#question {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#answer-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+    
+#answer-buttons button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #9e9e9e;
+    color: #ffffff;
+    font-size: 20px;
+    /* research how to increase pointer size */
+    cursor: pointer;
+    /* add transition*/
+
+    /* cursor: wait; ...experimenting, maybe add to timeout trigger */
+}
+
+#answer-buttons .btn:hover {
+    background-color: #d5d5d5;
+}
+
+
 .btn:hover {
     background-color: #a9a9aa;
 }
 
-#answer-buttons {
-
-}
 /* 
 #answer-buttons:hover {
     background-color: #a9a9aa;
@@ -35,7 +76,7 @@ header{
 #footer {
     margin-top: 40px;
     font-size: 20px;
-    color: #666;
+    color: rgb(48, 47, 47)000;
 }
 
 .hidden {

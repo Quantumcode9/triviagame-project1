@@ -97,83 +97,129 @@ const QUESTIONS = [
 },
 ];
 /*----- state variables -----*/
-
 //display score
 let questionIndex = 0;
 let score = 0;
+let incorrectAnswers = 0;
 
 
 //question number
 //current question
 //current awnsers
 //correct awnser
-//game state
+//score
 
 
 /*----- cached elements  -----*/
-
+//question text (element)
 const questionEl = document.getElementById('question');
+//answer button
 const answerButtonsEl = document.getElementById('answer-buttons');
+//start button
 const startButton = document.getElementById('start-btn');
+//next question button
 const nextButton = document.getElementById('next-btn')
 const restartButton = document.getElementById('restart-button')
-const scoreText = document.getElementById('result-text')
-const quitButton = document.getElementById('')
-//buttons 
-//start button
-//next question button
-//submit button
-//quit buttion
-//question text (element)
-//answer button
 //score text (element)
+const scoreText = document.getElementById('result-text')
+//quit buttion
+const quitButton = document.getElementById('quit-btn')
+
+//reply text (element) 
+
+//result text (element)
 
 
 
 /*----- event listeners -----*/
 
+
 //start the game
 
-document.getElementById('start-btn').addEventListener('click', startGame)
-//awnser click
-//
-//
+startButton.addEventListener('click', startGame);
+//answer click
+//next question click
+nextButton.addEventListener('click', handleNextQuestion);
+//restart click
+restartButton.addEventListener('click', restartGame);
+//quit click
+quitButton.addEventListener('click', quitGame);
+
 
 
 /*----- functions -----*/
-//function to start game
+//function to START game
 function startGame() {
     questionIndex = 0;
-    score = 0
-    showQuestion(questionIndex)
+    score = 0;
+    startButton.classList.add('hidden');
+    const questionContainer = document.getElementById('question-container');
+    questionContainer.classList.remove('hidden');
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.classList.add('hidden');
+    showQuestion(questionIndex);
 }
 
-//function to display the current question
-//function to handle awnsers
+
+
+
+//function to SHOW the current question
 
 function showQuestion(index) {
-const question = QUESTIONS[index];
-questionEl.innerText = question.questionText;
-answerButtonsEl.innerHTML = '';
-//need forEach option 
-question.answerOptions.forEach(option => {
-const button = document.createElement('button');
-button.innerText = option;
-button.classList.add('btn', 'answer-btn')
-button.addEventListener('click', ()=> handleAnswer(option));
-
-answerButtonsEl.appendChild(button);
+    const question = QUESTIONS[index];
+    questionEl.innerText = question.questionText;
+    answerButtonsEl.innerHTML = '';
+    //need forEach option
+    question.answerOptions.forEach(option => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.classList.add('btn', 'answer-btn');
+        button.addEventListener('click', () => handleAnswer(option));
+        answerButtonsEl.appendChild(button);
     });
 }
+
+//function to handle ANSWER
+
+function handleAnswer(selectedAnswer) {
+    const question = QUESTIONS[questionIndex];
+    if (selectedAnswer === question.correctAnswer) {
+        score++;
+    }
+// move to next question
+    questionIndex++;
+    handleNextQuestion();
+}
+
+// add function to display the current SCORE
+// add function to display the current QUESTION NUMBER
+// add function to display REPLY text "correct" or "incorrect
+
+// set TIMEOUT to 1 second and then call -
+//function to handle next question
+function handleNextQuestion() {
+    //move to next question
+    if (questionIndex < QUESTIONS.length) {
+        showQuestion(questionIndex);
+    } else {
+        endGame();
+    }
+}
+
+//function to end game
+
+//figure out how to randomize questions
+
+//function to RESTART game
+
+
 //............................
 
 
 
 
 //check to see if the awnser in correct, updates the score 
-//move to next question
-//function end
-//lose condition, if you get more that three wrong restart
+//lose condition, if you get more than three wrong... REPLY text "you lose" restart button appears
 //
 
 /*----- constants -----*/
