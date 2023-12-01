@@ -119,12 +119,12 @@ const answerButtonsEl = document.getElementById('answer-buttons');
 const startButton = document.getElementById('start-btn');
 //next question button
 const nextButton = document.getElementById('next-btn')
-const restartButton = document.getElementById('restart-button')
+const restartButton = document.getElementById('restart-btn')
 //score text (element)
 const scoreText = document.getElementById('result-text')
 //quit buttion
-const quitButton = document.getElementById('quit-btn')
-
+//const quitButton = document.getElementById('quit-btn') 
+////////////////////////////
 //reply text (element) 
 
 //result text (element)
@@ -143,13 +143,14 @@ nextButton.addEventListener('click', handleNextQuestion);
 //restart click
 restartButton.addEventListener('click', restartGame);
 //quit click
-quitButton.addEventListener('click', quitGame);
-
+//quitButton.addEventListener('click', quitGame);
+////////////////////
 
 
 /*----- functions -----*/
 //function to START game
 function startGame() {
+    shuffleArray(QUESTIONS);
     questionIndex = 0;
     score = 0;
     startButton.classList.add('hidden');
@@ -210,8 +211,25 @@ function handleNextQuestion() {
 
 //figure out how to randomize questions
 
+///javascript/how-to-randomize-shuffle-a-javascript-array.html 
+
+function shuffleArray(arr) {
+    for (let i = arr.length -1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i],arr[j]] = [arr[j], arr[i]];
+    }
+    console.log(arr);
+}
+
 
 //function to RESTART game
+
+function restartGame() {
+shuffleArray(QUESTIONS);
+questionIndex = 0;
+score = 0;
+showQuestion(questionIndex);
+}
 
 
 //............................
@@ -228,3 +246,4 @@ function handleNextQuestion() {
 /*----- cached elements  -----*/
 /*----- event listeners -----*/
 /*----- functions -----*/
+
