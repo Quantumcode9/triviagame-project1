@@ -37,7 +37,7 @@ const QUESTIONS = [
     },
     {
     questionText: "Name the movie that this iconic quote comes from: “Youre gonna need a bigger boat.”",
-    answerOptions: ["The Titanic", "Cast Away", "" ,"Jaws"],
+    answerOptions: ["The Titanic", "Cast Away", "The Beach" ,"Jaws"],
     correctAnswer: "Jaws"
     },
     {
@@ -96,6 +96,9 @@ const QUESTIONS = [
     correctAnswer: "Cedric Diggory"
 },
 ];
+
+const MAX_QUESTIONS = 10;
+
 /*----- state variables -----*/
 //display score
 let questionIndex = 0;
@@ -126,6 +129,9 @@ const scoreText = document.getElementById('result-text')
 //const quitButton = document.getElementById('quit-btn') 
 ////////////////////////////
 //reply text (element) 
+const replyEl = document.getElementById('reply');
+
+const questionContainer = document.getElementById('question-container');
 
 //result text (element)
 
@@ -148,13 +154,27 @@ restartButton.addEventListener('click', restartGame);
 
 
 /*----- functions -----*/
+
+
+//randomize questions
+
+function shuffleArray(arr) {
+    for (let i = arr.length -1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i],arr[j]] = [arr[j], arr[i]];
+    }
+    console.log(arr);
+}
+
+
 //function to START game
 function startGame() {
     shuffleArray(QUESTIONS);
     questionIndex = 0;
+    incorrectAnswers = 0;
     score = 0;
     startButton.classList.add('hidden');
-    const questionContainer = document.getElementById('question-container');
+    const questionContainer = document.getElementById('game-container');
     questionContainer.classList.remove('hidden');
     const resultContainer = document.getElementById('result-container');
     resultContainer.classList.add('hidden');
@@ -162,7 +182,15 @@ function startGame() {
 }
 
 
+//function to RESTART game
 
+function restartGame() {
+    shuffleArray(QUESTIONS);
+    questionIndex = 0;
+    score = 0;
+    showQuestion(questionIndex);
+    }
+    
 
 //function to SHOW the current question
 
@@ -170,6 +198,7 @@ function showQuestion(index) {
     const question = QUESTIONS[index];
     questionEl.innerText = question.questionText;
     answerButtonsEl.innerHTML = '';
+    replyEl.innerText = '';
     //need forEach option
     question.answerOptions.forEach(option => {
         const button = document.createElement('button');
@@ -186,19 +215,39 @@ function handleAnswer(selectedAnswer) {
     const question = QUESTIONS[questionIndex];
     if (selectedAnswer === question.correctAnswer) {
         score++;
+        replyEl.innerText = "Correct!";
+        replyEl.style.color = 'green';
+    } else {
+        replyEl.innerText = "Incorrect!";
+        replyEl.style.color = 'red';
+        incorrectAnswers++;
+        if (incorrectAnswers >= 3) {
+            // replyEl.innerText = "Incorrect!";
+            // replyEl.style.color = 'red';
+            endGame("lose");
+            return;
+        }
     }
-// move to next question
-    questionIndex++;
-    handleNextQuestion();
+
+    setTimeout(() => {
+        questionIndex++;
+        if (questionIndex >= MAX_QUESTIONS || questionIndex >= QUESTIONS.length) {
+            endGame('win');
+        } else {
+            showQuestion(questionIndex);
+        }
+    }, 1000); 
 }
+
+
 
 // add function to display the current SCORE
 // add function to display the current QUESTION NUMBER
-// add function to display REPLY text "Correct!" or "incorrect"
 
 // set TIMEOUT to 1 second and then call--
 //function to handle NEXT question
 function handleNextQuestion() {
+    questionIndex++;
     //move to next question
     if (questionIndex < QUESTIONS.length) {
         showQuestion(questionIndex);
@@ -207,29 +256,34 @@ function handleNextQuestion() {
     }
 }
 
-//function to end game
 
-//figure out how to randomize questions
 
-//https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
+function endGame(result) {
+    // Hide the question container
+    const questionContainer = document.getElementById('game-container');
+    
+    questionContainer.classList.add('hidden');
 
-function shuffleArray(arr) {
-    for (let i = arr.length -1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [arr[i],arr[j]] = [arr[j], arr[i]];
+    // Display result message
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.classList.remove('hidden');
+
+    scoreText.innerText = `${score} / ${MAX_QUESTIONS}`;
+
+    if (result === "lose") {
+        scoreText.innerText = `You lost! Too many Incorrect Answers: ${incorrectAnswers}`;
+    } else {
+        scoreText.innerText = `Congratulations! Your score: ${score}`;
     }
-    console.log(arr);
+
+    startButton.classList.remove('hidden');
+
 }
 
 
-//function to RESTART game
 
-function restartGame() {
-shuffleArray(QUESTIONS);
-questionIndex = 0;
-score = 0;
-showQuestion(questionIndex);
-}
+
+
 
 
 //............................
