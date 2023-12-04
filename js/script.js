@@ -133,6 +133,10 @@ const replyEl = document.getElementById('reply');
 
 const questionContainer = document.getElementById('question-container');
 const homeContainer = document.getElementById('home-container');
+const correctSound = document.getElementById('correct-sound');
+const incorrectSound = document.getElementById('incorrect-sound');
+const hoverSound = document.getElementById('hover-sound');
+
 
 //result text (element)
 
@@ -152,6 +156,8 @@ restartButton.addEventListener('click', restartGame);
 //quit click
 //quitButton.addEventListener('click', quitGame);
 ////////////////////
+
+
 
 
 /*----- functions -----*/
@@ -235,10 +241,12 @@ function handleAnswer(selectedAnswer) {
         score++;
         replyEl.innerText = "Correct!";
         replyEl.style.color = 'green';
+        correctSound.play();
         
     } else {
         replyEl.innerText = "Incorrect!";
         replyEl.style.color = 'red';
+        incorrectSound.play();
         incorrectAnswers++;
         if (incorrectAnswers >= 3) {
             // replyEl.innerText = "Incorrect!";
