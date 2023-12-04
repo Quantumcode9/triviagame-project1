@@ -31,7 +31,7 @@ const QUESTIONS = [
     correctAnswer: "Avatar"
     },
     {
-    questionText: "What color pill does Neo take in The Matrix",
+    questionText: "What color pill does Neo take in The Matrix?",
     answerOptions: ["Green", "Red", "Blue" ,"Black"],
     correctAnswer: "Red"
     },
@@ -136,6 +136,8 @@ const homeContainer = document.getElementById('home-container');
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
 const hoverSound = document.getElementById('hover-sound');
+const winSound = document.getElementById('win-sound');
+const loseSound = document.getElementById('lose-sound');
 
 
 //result text (element)
@@ -218,6 +220,12 @@ function showQuestion(index) {
         const button = document.createElement('button');
         button.innerText = option;
         button.classList.add('btn', 'answer-btn');
+        //adds HOVER sound to buttons
+        button.addEventListener('mouseover', () => {
+            hoverSound.currentTime = 0; 
+            hoverSound.play();
+        });
+
         button.addEventListener('click', () => handleAnswer(option));
         answerButtonsEl.appendChild(button);
     });
@@ -286,7 +294,6 @@ function handleNextQuestion() {
 }
 
 
-
 function endGame(result) {
     // Hide the question container
     const questionContainer = document.getElementById('game-container');
@@ -301,8 +308,10 @@ function endGame(result) {
 
     if (result === "lose") {
         scoreText.innerText = `You lost! Too many Incorrect Answers: ${incorrectAnswers}`;
+        loseSound.play();
     } else {
         scoreText.innerText = `Congratulations! Your score: ${score}`;
+        winSound.play();
     }
 
     startButton.classList.remove('hidden');
