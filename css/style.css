@@ -42,6 +42,10 @@ header{
     font-size: 30px;
     margin-bottom: 20px;
 }
+#result-text {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
 
 #answer-buttons {
     display: flex;

@@ -202,6 +202,11 @@ function showQuestion(index) {
     questionEl.innerText = question.questionText;
     answerButtonsEl.innerHTML = '';
     replyEl.innerText = '';
+    const buttons = answerButtonsEl.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.style.backgroundColor = ''; 
+    });
+
     //need forEach option
     question.answerOptions.forEach(option => {
         const button = document.createElement('button');
@@ -216,10 +221,21 @@ function showQuestion(index) {
 
 function handleAnswer(selectedAnswer) {
     const question = QUESTIONS[questionIndex];
+//styles for right and wrong SELECTED answers RED and GREEN
+    const buttons = answerButtonsEl.querySelectorAll('button');
+    buttons.forEach(button => {
+        if (button.innerText === selectedAnswer) {
+            button.style.backgroundColor = selectedAnswer === question.correctAnswer ? 'green' : 'red';
+        }
+        if (selectedAnswer !== question.correctAnswer && button.innerText === question.correctAnswer) {
+            button.style.backgroundColor = 'green';
+        }
+    });
     if (selectedAnswer === question.correctAnswer) {
         score++;
         replyEl.innerText = "Correct!";
         replyEl.style.color = 'green';
+        
     } else {
         replyEl.innerText = "Incorrect!";
         replyEl.style.color = 'red';
@@ -240,7 +256,9 @@ function handleAnswer(selectedAnswer) {
             showQuestion(questionIndex);
         }
     }, 1000); 
+
 }
+
 
 
 
@@ -283,7 +301,10 @@ function endGame(result) {
     startButton.innerText = 'Restart';
     const homeContainer = document.getElementById('home-container');
     homeContainer.classList.remove('hidden');
-
+    const replyEl = document.getElementById('reply');
+    replyEl.innerText = '';
+    const restartButton = document.getElementById('restart-btn')
+    restartButton.classList.add('hidden');
 }
 
 
