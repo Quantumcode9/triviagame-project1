@@ -132,6 +132,7 @@ const scoreText = document.getElementById('result-text')
 const replyEl = document.getElementById('reply');
 
 const questionContainer = document.getElementById('question-container');
+const homeContainer = document.getElementById('home-container');
 
 //result text (element)
 
@@ -178,6 +179,8 @@ function startGame() {
     questionContainer.classList.remove('hidden');
     const resultContainer = document.getElementById('result-container');
     resultContainer.classList.add('hidden');
+    const homeContainer = document.getElementById('home-container');
+    homeContainer.classList.add('hidden');
     showQuestion(questionIndex);
 }
 
@@ -277,6 +280,9 @@ function endGame(result) {
     }
 
     startButton.classList.remove('hidden');
+    startButton.innerText = 'Restart';
+    const homeContainer = document.getElementById('home-container');
+    homeContainer.classList.remove('hidden');
 
 }
 
@@ -284,20 +290,5 @@ function endGame(result) {
 
 
 
-
-
 //............................
-
-
-
-
-//check to see if the awnser in correct, updates the score 
-//lose condition, if you get more than three wrong... REPLY text "you lose" restart button appears
-//
-
-/*----- constants -----*/
-/*----- state variables -----*/
-/*----- cached elements  -----*/
-/*----- event listeners -----*/
-/*----- functions -----*/
 
