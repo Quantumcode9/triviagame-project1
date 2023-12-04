@@ -139,6 +139,7 @@ const hoverSound = document.getElementById('hover-sound');
 const winSound = document.getElementById('win-sound');
 const loseSound = document.getElementById('lose-sound');
 const timerEl = document.getElementById('timer');
+const timerSound = document.getElementById('timer-sound');
 
 
 //result text (element)
@@ -198,20 +199,56 @@ function updateTimerDisplay(time) {
     timerEl.innerText = time;
     //change color of timer as it gets closer to 0
     if (time <= 5) {
-        timerEl.style.color = 'red';
+        timerSound.play();
+        timerEl.style.fontSize = '30px';
+        timerEl.style.color = 'firebrick';
+        timerEl.style.fontWeight = 'bold';
+        timerEl.style.textAlign = 'center';
     } else {
-        timerEl.style.color = 'initial';
+        timerEl.style.fontSize = '20px';
+        timerEl.style.color = 'white';
+        timerEl.style.fontWeight = 'normal';
+        timerEl.style.textAlign = '';
 }
 }
 
 function handleTimeout() {
-    questionIndex++;
-    if (questionIndex < QUESTIONS.length) {
-        showQuestion(questionIndex);
-    }  else {
-        endGame();
+    replyEl.innerText = "Out of Time!";
+    replyEl.style.color = 'red';
+    incorrectSound.play(); 
+
+    incorrectAnswers++;
+    if (incorrectAnswers >= 3) {
+        endGame("lose");
+    } else {
+        questionIndex++;
+        if (questionIndex < QUESTIONS.length) {
+            showQuestion(questionIndex);
+        } else {
+            endGame("win");
+        }
     }
 }
+
+// function handleTimeout() {
+//     questionIndex++;
+//     if (questionIndex < QUESTIONS.length) {
+//         showQuestion(questionIndex);
+//     }  else {
+//         endGame();
+//     }
+// }
+
+function ResetSounds() {
+    const sounds = [correctSound, incorrectSound, timerSound];
+    sounds.forEach(sound => {
+        if (!sound.paused) {
+            sound.pause();
+            sound.currentTime = 0;
+        }
+    });
+}
+
 
 //function to START game
 function startGame() {
@@ -245,6 +282,7 @@ function restartGame() {
 //function to SHOW the current question
 
 function showQuestion(index) {
+    ResetSounds();
     clearInterval(timer);
     startTimer(); 
     const question = QUESTIONS[index];
@@ -342,10 +380,10 @@ function endGame(result) {
     scoreText.innerText = `${score} / ${MAX_QUESTIONS}`;
 
     if (result === "lose") {
-        scoreText.innerText = `You lost! Too many Incorrect Answers: ${incorrectAnswers}`;
+        scoreText.innerText = `You lost! That's ${incorrectAnswers} incorrect answers`;
         loseSound.play();
     } else {
-        scoreText.innerText = `Congratulations! Your score: ${score}`;
+        scoreText.innerText = `Congratulations! Your score: ${score}/${MAX_QUESTIONS}`;
         winSound.play();
     }
 
