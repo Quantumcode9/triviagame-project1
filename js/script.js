@@ -6,8 +6,6 @@
 
 
 //array of questions
-//nested array of answers 
-//to stop later headaches; an array of strings,
 
 const QUESTIONS = [
     {
@@ -98,9 +96,11 @@ const QUESTIONS = [
 ];
 
 const MAX_QUESTIONS = 10;
-
+const maxTime = 20; 
 /*----- state variables -----*/
 //display score
+let timeLeft; 
+let timer; 
 let questionIndex = 0;
 let score = 0;
 let incorrectAnswers = 0;
@@ -138,6 +138,7 @@ const incorrectSound = document.getElementById('incorrect-sound');
 const hoverSound = document.getElementById('hover-sound');
 const winSound = document.getElementById('win-sound');
 const loseSound = document.getElementById('lose-sound');
+const timerEl = document.getElementById('timer');
 
 
 //result text (element)
@@ -176,12 +177,49 @@ function shuffleArray(arr) {
 }
 
 
+function startTimer() {
+    clearInterval(timer); 
+    timeLeft = maxTime;
+    updateTimerDisplay(timeLeft);
+
+    timer = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay(timeLeft);
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            handleTimeout(); 
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay(time) {
+    const timerEl = document.getElementById('timer');
+    timerEl.innerText = time;
+    //change color of timer as it gets closer to 0
+    if (time <= 5) {
+        timerEl.style.color = 'red';
+    } else {
+        timerEl.style.color = 'initial';
+}
+}
+
+function handleTimeout() {
+    questionIndex++;
+    if (questionIndex < QUESTIONS.length) {
+        showQuestion(questionIndex);
+    }  else {
+        endGame();
+    }
+}
+
 //function to START game
 function startGame() {
     shuffleArray(QUESTIONS);
     questionIndex = 0;
     incorrectAnswers = 0;
     score = 0;
+    timerEl.classList.remove('hidden');
     startButton.classList.add('hidden');
     const questionContainer = document.getElementById('game-container');
     questionContainer.classList.remove('hidden');
@@ -190,6 +228,7 @@ function startGame() {
     const homeContainer = document.getElementById('home-container');
     homeContainer.classList.add('hidden');
     showQuestion(questionIndex);
+    startTimer();
 }
 
 
@@ -206,6 +245,8 @@ function restartGame() {
 //function to SHOW the current question
 
 function showQuestion(index) {
+    clearInterval(timer);
+    startTimer(); 
     const question = QUESTIONS[index];
     questionEl.innerText = question.questionText;
     answerButtonsEl.innerHTML = '';
@@ -234,6 +275,7 @@ function showQuestion(index) {
 //function to handle ANSWER
 
 function handleAnswer(selectedAnswer) {
+    clearInterval(timer); 
     const question = QUESTIONS[questionIndex];
 //styles for right and wrong SELECTED answers RED and GREEN
     const buttons = answerButtonsEl.querySelectorAll('button');
@@ -265,39 +307,32 @@ function handleAnswer(selectedAnswer) {
     }
 
     setTimeout(() => {
+        clearInterval(timer); 
         questionIndex++;
         if (questionIndex >= MAX_QUESTIONS || questionIndex >= QUESTIONS.length) {
             endGame('win');
         } else {
             showQuestion(questionIndex);
         }
-    }, 1000); 
+    }, 1000);
 
 }
 
 
-
-
-// add function to display the current SCORE
-// add function to display the current QUESTION NUMBER
-
-// set TIMEOUT to 1 second and then call--
+//  set TIMEOUT to 1 second and then call--
 //function to handle NEXT question
-function handleNextQuestion() {
-    questionIndex++;
-    //move to next question
-    if (questionIndex < QUESTIONS.length) {
-        showQuestion(questionIndex);
-    } else {
-        endGame();
-    }
-}
-
+// function handleNextQuestion() {
+//     questionIndex++;
+//     if (questionIndex >= MAX_QUESTIONS || questionIndex >= QUESTIONS.length) {
+//         endGame('win');
+//     } else {
+//         showQuestion(questionIndex);
+//     }
+// }
 
 function endGame(result) {
     // Hide the question container
     const questionContainer = document.getElementById('game-container');
-    
     questionContainer.classList.add('hidden');
 
     // Display result message
@@ -328,5 +363,4 @@ function endGame(result) {
 
 
 
-//............................
-
+//...........................
