@@ -3,7 +3,7 @@ body {
     justify-content: center;
     text-align: center; */
     min-height: 100vh;
-    background-color: #626060;
+    background-color: #000000;
     color: #ffffff;
     text-align: center;
     margin: 0;
@@ -111,3 +111,12 @@ header{
     text-align: right;
     color: #eaeaea;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+

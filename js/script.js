@@ -24,7 +24,7 @@ const QUESTIONS = [
     correctAnswer: "Heath Ledger"
     },
     {
-    questionText: "What is the highest grossing movie of all time?",
+    questionText: "What is the highest grossing movie of all time (not adjusted for inflation)?",
     answerOptions: ["Avengers: Endgame", "Titanic", "Avatar" ,"Barbie"],
     correctAnswer: "Avatar"
     },
@@ -44,22 +44,23 @@ const QUESTIONS = [
     correctAnswer: "Tom Hanks"
     },
     {
-    questionText: "What is the name of the Hotel in The Shining?",
+    questionText: "What is the name of the Hotel in 'The Shining'?",
     answerOptions: ["The Stanley", "The Dolphin", "The Overlook" ,"The Hilton"],
-    correctAnswer: "The Overlook"
+    correctAnswer: "The Overlook",
+    img: "Images/overlook.jpg"
     },
     {
-    questionText: "Which actor plays the main character in Scott Pilgrim Vs. The World?",
+    questionText: "Which actor plays the main character in Scott 'Pilgrim Vs. The World'?",
     answerOptions: ["Chris Evans", "Micheal Cera", "Jonah Hill" ,"Seth Rogan"],
     correctAnswer: "Micheal Cera"
     },
     {
     questionText: "How many Infinity Stones are there in Avengers: Endgame?",
-    answerOptions: ["Five", "Four", "Six" , "Thanos was right"],
-    correctAnswer: "Six" 
+    answerOptions: ["Five", "Four", "Six", "Seven"],
+    correctAnswer: "Six", 
     },
     { 
-    questionText: "Who directed The Dark Knight?",
+    questionText: "Who directed 'The Dark Knight'?",
     answerOptions: ["Christopher Nolan", "James Cameron", "Wes Anderson" ,"Jordan Peele"],
     correctAnswer: "Christopher Nolan"    
 },
@@ -81,7 +82,8 @@ const QUESTIONS = [
 {
     questionText: "In 'Inception', which item is used by Cobb as a totem?",
     answerOptions: ["A briefcase", "A spinning top", "A golden coin" ,"A totem?"],
-    correctAnswer: "A spinning top"
+    correctAnswer: "A spinning top",
+    img: "Images/cobb.jpg"
 },
 {
     questionText: "What was Johnny Depp's first movie appearance?",
@@ -93,6 +95,109 @@ const QUESTIONS = [
     answerOptions: ["Draco Malfoy", "Cedric Diggory", "Ron Weasley", "Sirius Black"],
     correctAnswer: "Cedric Diggory"
 },
+{
+    questionText: "What is this movie called?",
+    answerOptions: ["Lethal Weapon", "Die Hard", "Fight Club", "Se7en"],
+    correctAnswer: "Se7en",
+    img: "Images/WITB.jpg"
+},
+{
+    questionText: "What is the name of the fictional African nation in the movie 'Black Panther'?",
+    answerOptions: ["Genosha","Wakanda", "Latveria", "Zamunda"],
+    correctAnswer: "Wakanda"
+},
+{
+    questionText: "In which movie did Tom Cruise play a character who attends the U.S. Naval Fighter Weapons School?",
+    answerOptions: ["Rain Man", "Top Gun", "The Color of Money", "Risky Business"],
+    correctAnswer: "Top Gun"
+},
+{
+    questionText: "Who directed the the epic historical drama 'Schindler's List' in 1993?",
+    answerOptions: ["Steven Spielberg", "Martin Scorsese", "Ridley Scott", "Oliver Stone"],
+    correctAnswer: "Steven Spielberg"
+},
+{
+    questionText: "Which movie, tells the story of a Polish Jewish musician struggling to survive the destruction of World War II?",
+    answerOptions: ["Schindler's List", "Life Is Beautiful", "The Pianist", "Saving Private Ryan"],
+    correctAnswer: "The Pianist"
+},
+{
+    questionText: "In the 2017 horror film 'Get Out', directed by Jordan Peele, what unique method does the antagonist family use to control their victims?",
+    answerOptions: ["Drugs", "Hypnosis", "Magic", "Technology"],
+    correctAnswer: "Hypnosis"
+},
+{
+    questionText: "Which actor played the lead role of the stuntman and getaway driver in the 2011 film 'Drive'?",
+    answerOptions: ["Jake Gyllenhaal", "Christian Bale", "Ryan Gosling", "Brad Pitt"],
+    correctAnswer: "Ryan Gosling",
+    img: "" 
+},
+{
+    questionText: "In Stephen King's 'It', what form does the shape-shifting entity primarily take?",
+    answerOptions: ["A Clown", "A Spider", "A Werewolf", "A Vampire"],
+    correctAnswer: "A Clown",
+    img: "" 
+},
+{
+    questionText: "In the 2007 film 'The Mist', adapted from a Stephen King novella, where do the survivors take refuge from the mysterious mist?",
+    answerOptions: ["A Church", "A Grocery Store", "A School", "A Hospital"],
+    correctAnswer: "A Grocery Store"
+},
+{
+    questionText: "In Stephen King's 'It', what is the name of the mysterious, hypnotizing lights that are a manifestation of It's true form?",
+    answerOptions: ["SoulLights", "FearLights", "Deadlights", "DoomLights"],
+    correctAnswer: "Deadlights",
+    img: "Images/Dlights.png" 
+},
+
+{
+    questionText: "Which 2009 superhero film, directed by Zack Snyder, features characters like Rorschach and Dr. Manhattan?",
+    answerOptions: ["The Dark Knight", "Watchmen", "Sin City", "V for Vendetta"],
+    correctAnswer: "Watchmen",
+},
+{
+    questionText: "Which director is known for his distinctive visual and narrative style in films such as 'The Grand Budapest Hotel' and 'Moonrise Kingdom'?",
+    answerOptions: ["Wes Anderson", "Christopher Nolan", "Quentin Tarantino", "Steven Spielberg"],
+    correctAnswer: "Wes Anderson",
+    img: "Images/Wes.jpg" 
+},
+{
+    questionText: "In which movie, is a curse transmitted from person to person like a virus?",
+    answerOptions: ["The Conjuring", "Hereditary", "The Babadook", "It Follows"],
+    correctAnswer: "It Follows",
+},
+{
+    questionText: "Which movie, is a modern musical romance set in Los Angeles?",
+    answerOptions: ["Moulin Rouge!", "Chicago", "La La Land", "The Greatest Showman"],
+    correctAnswer: "La La Land",
+},
+{
+    questionText: "Which movie, is a 2015 American horror film directed by Robert Eggers?",
+    answerOptions: ["It", "The Conjuring", "The Babadook", "The Witch"],
+    correctAnswer: "The Witch",
+},
+{
+    questionText: "Played by Jack Nicholson, What's the main character's name in the movie 'The Shining'?",
+    answerOptions: ["Danny", "Jack", "Wendy", "Tony"],
+    correctAnswer: "Jack",
+},
+{
+    questionText: "Which movie, is a 2013 American supernatural horror film directed by James Wan?",
+    answerOptions: ["The Conjuring", "The Babadook", "The Witch", "It"],
+    correctAnswer: "The Conjuring",
+},
+{
+    questionText: "Which movie, is a 2017 American romantic coming-of-age drama starring Timothée Chalamet and Armie Hammer?",
+    answerOptions: ["Call Me by Your Name", "Lady Bird", "Dune", "Moonlight"],
+    correctAnswer: "Call Me by Your Name",
+},
+{
+    questionText: "In Stanley Kubrick's '2001: A Space Odyssey,' what is the name of the AI character known for the quote 'I'm sorry, Dave, I'm afraid I can't do that'?",
+    answerOptions: ["Skynet", "HAL 9000", "R2-D2", "JARVIS"],
+    correctAnswer: "HAL 9000",
+    img: "Images/hal.jpg"
+},
+
 ];
 
 const MAX_QUESTIONS = 10;
@@ -140,6 +245,7 @@ const winSound = document.getElementById('win-sound');
 const loseSound = document.getElementById('lose-sound');
 const timerEl = document.getElementById('timer');
 const timerSound = document.getElementById('timer-sound');
+const questionImage = document.getElementById('question-image');
 
 
 //result text (element)
@@ -287,6 +393,14 @@ function showQuestion(index) {
     startTimer(); 
     const question = QUESTIONS[index];
     questionEl.innerText = question.questionText;
+    const questionImage = document.getElementById('question-image');
+    if (question.img) {
+        questionImage.src = question.img;
+        questionImage.classList.remove('hidden'); 
+    } else {
+        questionImage.classList.add('hidden'); 
+    }
+
     answerButtonsEl.innerHTML = '';
     replyEl.innerText = '';
     const buttons = answerButtonsEl.querySelectorAll('button');
