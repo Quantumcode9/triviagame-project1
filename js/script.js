@@ -133,7 +133,7 @@ const QUESTIONS = [
     img: "" 
 },
 {
-    questionText: "In Stephen King's 'It', what form does the shape-shifting entity primarily take?",
+    questionText: "In Stephen King's 'IT', what form does the shape-shifting entity primarily take?",
     answerOptions: ["A Clown", "A Spider", "A Werewolf", "A Vampire"],
     correctAnswer: "A Clown",
     img: "" 
@@ -144,7 +144,7 @@ const QUESTIONS = [
     correctAnswer: "A Grocery Store"
 },
 {
-    questionText: "In Stephen King's 'It', what is the name of the mysterious, hypnotizing lights that are a manifestation of It's true form?",
+    questionText: "In Stephen King's 'IT', what is the name of the hypnotizing lights that are a manifestation of It's true form?",
     answerOptions: ["SoulLights", "FearLights", "Deadlights", "DoomLights"],
     correctAnswer: "Deadlights",
     img: "Images/Dlights.png" 
