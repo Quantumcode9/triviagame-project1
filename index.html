@@ -6,17 +6,17 @@
     <title>Trivia</title>
     <link rel="stylesheet" href="css/style.css">
     <audio id="correct-sound" src="Sound/right.mp3" preload="auto"></audio>
-<audio id="incorrect-sound" src="Sound/wrong.mp3" preload="auto"></audio>
+<audio id="incorrect-sound" src="Sound/wrong-buzzer.mp3" preload="auto"></audio>
 <audio id="hover-sound" src="Sound/click.wav" preload="auto"></audio>
 <audio id="win-sound" src="Sound/win.wav" preload="auto"></audio>
 <audio id="lose-sound" src="Sound/lose.mp3" preload="auto"></audio>
-<audio id="timer-sound" src="Sound/timer.mp3" preload="auto"></audio>
+<audio id="timer-sound" src="Sound/clock.mp3" preload="auto"></audio>
 <body>
     <header>
         <h1>Trivia</h1>
     </header>
     <main id = "game-container" class= "hidden2">
-        <div id="timer"><span id="time-left">20</span> seconds for each question</div>
+        <div id="timer">You'll have <span id="time-left">20</span> seconds for each question</div>
         <img id="question-image" src="" class="hidden">
         <section id = "question-container" class="hidden">
             <h2 id = "question">Click Start To Begin</h2>
@@ -38,7 +38,7 @@
 
 
         <div id="reply"></div>
-
+<!-- not used, keeping just in case -->
     <footer id = "footer">
         <button id = "next-btn" class="hidden">Next Question</button>
         <button id = "restart-btn" class="hidden">Restart</button>

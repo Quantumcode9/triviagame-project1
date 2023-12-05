@@ -96,7 +96,7 @@ const QUESTIONS = [
     correctAnswer: "Cedric Diggory"
 },
 {
-    questionText: "What is this movie called?",
+    questionText: "Name this movie?",
     answerOptions: ["Lethal Weapon", "Die Hard", "Fight Club", "Se7en"],
     correctAnswer: "Se7en",
     img: "Images/WITB.jpg"
@@ -162,7 +162,7 @@ const QUESTIONS = [
     img: "Images/Wes.jpg" 
 },
 {
-    questionText: "In which movie is a curse transmitted from person to person like a virus?",
+    questionText: "In which horror movie is a curse transmitted from person to person like a virus?",
     answerOptions: ["The Conjuring", "Hereditary", "The Babadook", "It Follows"],
     correctAnswer: "It Follows",
 },
