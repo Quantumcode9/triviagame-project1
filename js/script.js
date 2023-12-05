@@ -24,7 +24,7 @@ const QUESTIONS = [
     correctAnswer: "Heath Ledger"
     },
     {
-    questionText: "What is the highest grossing movie of all time (not adjusted for inflation)?",
+    questionText: "What is the highest grossing movie of all time? (not adjusted for inflation)",
     answerOptions: ["Avengers: Endgame", "Titanic", "Avatar" ,"Barbie"],
     correctAnswer: "Avatar"
     },
@@ -117,7 +117,7 @@ const QUESTIONS = [
     correctAnswer: "Steven Spielberg"
 },
 {
-    questionText: "Which movie, tells the story of a Polish Jewish musician struggling to survive the destruction of World War II?",
+    questionText: "Which movie tells the story of a Polish Jewish musician struggling to survive the destruction of World War II?",
     answerOptions: ["Schindler's List", "Life Is Beautiful", "The Pianist", "Saving Private Ryan"],
     correctAnswer: "The Pianist"
 },
@@ -162,17 +162,17 @@ const QUESTIONS = [
     img: "Images/Wes.jpg" 
 },
 {
-    questionText: "In which movie, is a curse transmitted from person to person like a virus?",
+    questionText: "In which movie is a curse transmitted from person to person like a virus?",
     answerOptions: ["The Conjuring", "Hereditary", "The Babadook", "It Follows"],
     correctAnswer: "It Follows",
 },
 {
-    questionText: "Which movie, is a modern musical romance set in Los Angeles?",
+    questionText: "Which movie is a modern musical romance set in Los Angeles?",
     answerOptions: ["Moulin Rouge!", "Chicago", "La La Land", "The Greatest Showman"],
     correctAnswer: "La La Land",
 },
 {
-    questionText: "Which movie, is a 2015 American horror film directed by Robert Eggers?",
+    questionText: "Which movie is a 2015 American horror film directed by Robert Eggers?",
     answerOptions: ["It", "The Conjuring", "The Babadook", "The Witch"],
     correctAnswer: "The Witch",
 },
@@ -182,17 +182,17 @@ const QUESTIONS = [
     correctAnswer: "Jack",
 },
 {
-    questionText: "Which movie, is a 2013 American supernatural horror film directed by James Wan?",
+    questionText: "Which movie is a 2013 American supernatural horror film directed by James Wan?",
     answerOptions: ["The Conjuring", "The Babadook", "The Witch", "It"],
     correctAnswer: "The Conjuring",
 },
 {
-    questionText: "Which movie, is a 2017 American romantic coming-of-age drama starring Timothée Chalamet and Armie Hammer?",
+    questionText: "Which movie is a 2017 American romantic coming-of-age drama starring Timothée Chalamet and Armie Hammer?",
     answerOptions: ["Call Me by Your Name", "Lady Bird", "Dune", "Moonlight"],
     correctAnswer: "Call Me by Your Name",
 },
 {
-    questionText: "In Stanley Kubrick's '2001: A Space Odyssey,' what is the name of the AI character known for the quote 'I'm sorry, Dave, I'm afraid I can't do that'?",
+    questionText: "In Stanley Kubrick's '2001: A Space Odyssey,' what is the name of the ship's AI?",
     answerOptions: ["Skynet", "HAL 9000", "R2-D2", "JARVIS"],
     correctAnswer: "HAL 9000",
     img: "Images/hal.jpg"
@@ -312,7 +312,7 @@ function updateTimerDisplay(time) {
         timerEl.style.textAlign = 'center';
     } else {
         timerEl.style.fontSize = '20px';
-        timerEl.style.color = 'white';
+        timerEl.style.color = '';
         timerEl.style.fontWeight = 'normal';
         timerEl.style.textAlign = '';
 }
@@ -495,9 +495,11 @@ function endGame(result) {
 
     if (result === "lose") {
         scoreText.innerText = `You lost! That's ${incorrectAnswers} incorrect answers`;
+        scoreText.style.color = 'white';
         loseSound.play();
     } else {
         scoreText.innerText = `Congratulations! Your score: ${score}/${MAX_QUESTIONS}`;
+        scoreText.style.color = 'white';
         winSound.play();
     }
 
