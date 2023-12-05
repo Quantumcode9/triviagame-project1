@@ -317,13 +317,14 @@ function updateTimerDisplay(time) {
         timerEl.style.textAlign = '';
 }
 }
+//function to handle TIMEOUT
 
 function handleTimeout() {
     replyEl.innerText = "Out of Time!";
     replyEl.style.color = 'red';
     incorrectSound.play(); 
-
     incorrectAnswers++;
+    setTimeout(() => {
     if (incorrectAnswers >= 3) {
         endGame("lose");
     } else {
@@ -332,9 +333,10 @@ function handleTimeout() {
             showQuestion(questionIndex);
         } else {
             endGame("win");
-        }
-    }
+        }}
+    }, 1000); 
 }
+
 
 // function handleTimeout() {
 //     questionIndex++;
@@ -393,6 +395,7 @@ function showQuestion(index) {
     startTimer(); 
     const question = QUESTIONS[index];
     questionEl.innerText = question.questionText;
+    //IMAGES for questions with images
     const questionImage = document.getElementById('question-image');
     if (question.img) {
         questionImage.src = question.img;
@@ -466,7 +469,7 @@ function handleAnswer(selectedAnswer) {
         } else {
             showQuestion(questionIndex);
         }
-    }, 1000);
+    }, 2000);
 
 }
 
@@ -483,6 +486,7 @@ function handleAnswer(selectedAnswer) {
 // }
 
 function endGame(result) {
+    ResetSounds();
     // Hide the question container
     const questionContainer = document.getElementById('game-container');
     questionContainer.classList.add('hidden');
