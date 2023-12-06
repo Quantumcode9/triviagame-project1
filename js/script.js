@@ -211,10 +211,10 @@ let score = 0;
 let incorrectAnswers = 0;
 
 
-//question number
-//current question
-//current awnsers
-//correct awnser
+//add current question number to display
+
+
+
 //score
 
 
@@ -337,16 +337,6 @@ function handleTimeout() {
     }, 1000); 
 }
 
-
-// function handleTimeout() {
-//     questionIndex++;
-//     if (questionIndex < QUESTIONS.length) {
-//         showQuestion(questionIndex);
-//     }  else {
-//         endGame();
-//     }
-// }
-
 function ResetSounds() {
     const sounds = [correctSound, incorrectSound, timerSound];
     sounds.forEach(sound => {
@@ -355,6 +345,11 @@ function ResetSounds() {
             sound.currentTime = 0;
         }
     });
+}
+
+function nextQuestionNumber() {
+    const questionNumber = document.getElementById('question-number');
+    questionNumber.innerText = `Question ${questionIndex + 1} of ${MAX_QUESTIONS}`;
 }
 
 
@@ -390,6 +385,7 @@ function restartGame() {
 //function to SHOW the current question
 
 function showQuestion(index) {
+    nextQuestionNumber();
     ResetSounds();
     clearInterval(timer);
     startTimer(); 
@@ -454,13 +450,11 @@ function handleAnswer(selectedAnswer) {
         incorrectSound.play();
         incorrectAnswers++;
         if (incorrectAnswers >= 3) {
-            // replyEl.innerText = "Incorrect!";
-            // replyEl.style.color = 'red';
             endGame("lose");
             return;
         }
     }
-
+    //TIMEOUT/ NEXT QUESTION. 
     setTimeout(() => {
         clearInterval(timer); 
         questionIndex++;
@@ -472,18 +466,6 @@ function handleAnswer(selectedAnswer) {
     }, 2000);
 
 }
-
-
-//  set TIMEOUT to 1 second and then call--
-//function to handle NEXT question
-// function handleNextQuestion() {
-//     questionIndex++;
-//     if (questionIndex >= MAX_QUESTIONS || questionIndex >= QUESTIONS.length) {
-//         endGame('win');
-//     } else {
-//         showQuestion(questionIndex);
-//     }
-// }
 
 function endGame(result) {
     ResetSounds();
@@ -498,7 +480,7 @@ function endGame(result) {
     scoreText.innerText = `${score} / ${MAX_QUESTIONS}`;
 
     if (result === "lose") {
-        scoreText.innerText = `You lost! That's ${incorrectAnswers} incorrect answers`;
+        scoreText.innerText = `You lost! That's ${incorrectAnswers} incorrect answers!`;
         scoreText.style.color = 'white';
         loseSound.play();
     } else {
@@ -516,9 +498,3 @@ function endGame(result) {
     const restartButton = document.getElementById('restart-btn')
     restartButton.classList.add('hidden');
 }
-
-
-
-
-
-//...........................
