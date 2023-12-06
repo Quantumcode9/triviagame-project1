@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia</title>
     <link rel="stylesheet" href="css/style.css">
-    <audio id="correct-sound" src="Sound/right.mp3" preload="auto"></audio>
+</head>
+<audio id="correct-sound" src="Sound/right.mp3" preload="auto"></audio>
 <audio id="incorrect-sound" src="Sound/wrong-buzzer.mp3" preload="auto"></audio>
 <audio id="hover-sound" src="Sound/click.wav" preload="auto"></audio>
 <audio id="win-sound" src="Sound/win.wav" preload="auto"></audio>
@@ -13,42 +14,38 @@
 <audio id="timer-sound" src="Sound/clock.mp3" preload="auto"></audio>
 <body>
     <header>
-        <h1>Movie Trivia</h1>
-    </header>
-    <main id = "game-container" class= "hidden2">
-        <section id="progress-container">
-            <div id="question-number"></div>
-        </section>
-        <div id="timer">You'll have <span id="time-left">20</span> seconds for each question</div>
-        <img id="question-image" src="" class="hidden">
-        <section id = "question-container" class="hidden">
-            <h2 id = "question">Click Start To Begin</h2>
-            <div id = "answer-buttons" class="btn-grid">
-            </div>
-        </section>
-    </main>
-    <section id = "home-container">
-        <section id = "result-container">
-            <div id = "result-text"> <span id="scoreText"></scoreText></div>
-        </section>
-        <button id = "start-btn" class="btn">Start</button>
-        <!-- <section id = "result-container" class="hidden"> -->
-        
-    </section>  
-            <section id = "result-container">
-            <div id = "result-text"> <span id="scoreText"></scoreText></div>
-        </section>
-
-
-        <div id="reply"></div>
-<!-- not used, keeping just in case -->
-    <footer id = "footer">
-        <button id = "next-btn" class="hidden">Next Question</button>
-        <button id = "restart-btn" class="hidden">Restart</button>
-        <button id = "quit-btn" class="hidden">Give up</button>
-    </footer>
-
-    <script src="js/script.js"></script>
-</head>
+		<h1>Movie Trivia Game</h1>
+	</header>
+	<main class="hidden2" id="game-container">
+		<section id="progress-container">
+			<div id="question-number"></div>
+		</section>
+		<div id="timer">
+			You'll have <span id="time-left">20</span> seconds for each question
+		</div>
+            <img class="hidden" id="question-image" src="">
+		<section class="hidden" id="question-container">
+			<h2 id="question">Click Start To Begin</h2>
+			<div class="btn-grid" id="answer-buttons"></div>
+		</section>
+	</main>
+	<section id="home-container">
+		<section id="result-container">
+			<div id="result-text">
+				<span id="scoreText"></span>
+			</div>
+		</section><span id="scoreText"><button class="btn" id="start-btn">
+            <span id="scoreText">Start</span> </button></span>
+	</section>
+	<section id="result-container">
+		<div id="result-text">
+			<span id="scoreText"></span>
+		</div>
+	</section>
+	<div id="reply">
+		<span id="scoreText"></span>
+	</div><span id="scoreText">
+	<script src="js/script.js">
+	</script> </span>
 </body>
 </html>

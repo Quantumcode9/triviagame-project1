@@ -4,9 +4,6 @@
 
 /*----- constants -----*/
 
-
-//array of questions
-
 const QUESTIONS = [
     {
     questionText: "What was the first feature-length animated movie ever released?",
@@ -117,11 +114,6 @@ const QUESTIONS = [
     correctAnswer: "Steven Spielberg"
 },
 {
-    questionText: "Which movie tells the story of a Polish Jewish musician struggling to survive the destruction of World War II?",
-    answerOptions: ["Schindler's List", "Life Is Beautiful", "The Pianist", "Saving Private Ryan"],
-    correctAnswer: "The Pianist"
-},
-{
     questionText: "In the 2017 horror film 'Get Out', directed by Jordan Peele, what unique method does the antagonist family use to control their victims?",
     answerOptions: ["Drugs", "Hypnosis", "Magic", "Technology"],
     correctAnswer: "Hypnosis"
@@ -147,7 +139,7 @@ const QUESTIONS = [
     questionText: "In Stephen King's 'IT', what is the name of the hypnotizing lights that are a manifestation of It's true form?",
     answerOptions: ["SoulLights", "FearLights", "Deadlights", "DoomLights"],
     correctAnswer: "Deadlights",
-    img: "Images/Dlights.png" 
+    img: "Images/Dlights.jpg" 
 },
 
 {
@@ -203,19 +195,11 @@ const QUESTIONS = [
 const MAX_QUESTIONS = 10;
 const maxTime = 20; 
 /*----- state variables -----*/
-//display score
 let timeLeft; 
 let timer; 
 let questionIndex = 0;
 let score = 0;
 let incorrectAnswers = 0;
-
-
-//add current question number to display
-
-
-
-//score
 
 
 /*----- cached elements  -----*/
@@ -232,7 +216,6 @@ const restartButton = document.getElementById('restart-btn')
 const scoreText = document.getElementById('result-text')
 //quit buttion
 //const quitButton = document.getElementById('quit-btn') 
-////////////////////////////
 //reply text (element) 
 const replyEl = document.getElementById('reply');
 
@@ -248,30 +231,16 @@ const timerSound = document.getElementById('timer-sound');
 const questionImage = document.getElementById('question-image');
 
 
-//result text (element)
-
-
-
 /*----- event listeners -----*/
-
-
-//start the game
-
+//start click
 startButton.addEventListener('click', startGame);
 //answer click
 //next question click
 nextButton.addEventListener('click', handleNextQuestion);
 //restart click
 restartButton.addEventListener('click', restartGame);
-//quit click
-//quitButton.addEventListener('click', quitGame);
-////////////////////
-
-
-
 
 /*----- functions -----*/
-
 
 //randomize questions
 
@@ -283,6 +252,7 @@ function shuffleArray(arr) {
     console.log(arr);
 }
 
+//function to START timer
 
 function startTimer() {
     clearInterval(timer); 
@@ -347,11 +317,12 @@ function ResetSounds() {
     });
 }
 
+// Question Number Display
+
 function nextQuestionNumber() {
     const questionNumber = document.getElementById('question-number');
     questionNumber.innerText = `Question ${questionIndex + 1} of ${MAX_QUESTIONS}`;
 }
-
 
 //function to START game
 function startGame() {
@@ -407,7 +378,6 @@ function showQuestion(index) {
         button.style.backgroundColor = ''; 
     });
 
-    //need forEach option
     question.answerOptions.forEach(option => {
         const button = document.createElement('button');
         button.innerText = option;
