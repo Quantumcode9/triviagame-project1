@@ -137,7 +137,7 @@ const QUESTIONS = [
 },
 {
     questionText: "In Stephen King's 'IT', what is the name of the hypnotizing lights that are a manifestation of It's true form?",
-    answerOptions: ["SoulLights", "FearLights", "Deadlights", "DoomLights"],
+    answerOptions: ["Soullights", "Fearlights", "Deadlights", "Doomlights"],
     correctAnswer: "Deadlights",
     img: "Images/Dlights.jpg" 
 },
@@ -242,7 +242,7 @@ restartButton.addEventListener('click', restartGame);
 
 /*----- functions -----*/
 
-//randomize questions
+// SHUFFLE questions
 
 function shuffleArray(arr) {
     for (let i = arr.length -1; i > 0; i--) {
@@ -273,7 +273,7 @@ function startTimer() {
 function updateTimerDisplay(time) {
     const timerEl = document.getElementById('timer');
     timerEl.innerText = time;
-    //change color of timer as it gets closer to 0
+    //change COLOR of TIMER as it gets closer to 0
     if (time <= 5) {
         timerSound.play();
         timerEl.style.fontSize = '30px';
@@ -436,6 +436,7 @@ function handleAnswer(selectedAnswer) {
     }, 2000);
 
 }
+// END GAME function
 
 function endGame(result) {
     ResetSounds();
@@ -448,9 +449,9 @@ function endGame(result) {
     resultContainer.classList.remove('hidden');
 
     scoreText.innerText = `${score} / ${MAX_QUESTIONS}`;
-
+//RESULT TEXT
     if (result === "lose") {
-        scoreText.innerText = `You lost! That's ${incorrectAnswers} incorrect answers!`;
+        scoreText.innerText = `You lost! That's ${incorrectAnswers} incorrect answers...`;
         scoreText.style.color = 'white';
         loseSound.play();
     } else {
@@ -465,6 +466,6 @@ function endGame(result) {
     homeContainer.classList.remove('hidden');
     const replyEl = document.getElementById('reply');
     replyEl.innerText = '';
-    const restartButton = document.getElementById('restart-btn')
-    restartButton.classList.add('hidden');
+    // const restartButton = document.getElementById('restart-btn')
+    // restartButton.classList.add('hidden');
 }
