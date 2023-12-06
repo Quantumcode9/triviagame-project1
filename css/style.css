@@ -15,11 +15,11 @@ header{
     background-color: #fcf3d6;
     max-width: 600px;
     width: 80%;
+    height: auto; 
     margin: auto;
     padding: 20px;
     overflow: hidden;
     border-radius: 30px;
-
 }
 
 #question-container {
@@ -47,8 +47,8 @@ header{
     margin-bottom: 20px;
 }
 #result-text {
-    font-size: 30px;
-    margin-bottom: 20px;
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 #answer-buttons {
@@ -56,9 +56,10 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     gap: 10px;
 }
+
     
 #answer-buttons button {
     width: 100%;
@@ -69,7 +70,6 @@ header{
     color: #ffffff;
     font-size: 20px;
     cursor: pointer;
-
 }
 
 #start-btn {
@@ -97,10 +97,6 @@ header{
     background-color: #a9a9aa;
 }
 
-/* 
-#answer-buttons:hover {
-    background-color: #a9a9aa;
-} */
 
 #footer {
     margin-top: 40px;
@@ -126,13 +122,36 @@ img {
 }
 
 #reply {
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     color: #e2dddc;
 }
 
-#progress-bar {
-    width: 0%;
-    height: 20px;
-    background-color: #4CAF50;
+footer {
+    background-color: #f1f1ef;
+    max-width: 600px;
+    width: 20%;
+    padding: 10px;
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+
+}
+
+#X-Board {
+    color: red;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+    #game-container {
+        height: auto; 
+    }
+    #home-container {
+        height: auto; 
+    }
+    #footer {
+        height: auto; 
+    }
 }

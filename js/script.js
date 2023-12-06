@@ -21,7 +21,7 @@ const QUESTIONS = [
     correctAnswer: "Heath Ledger"
     },
     {
-    questionText: "What is the highest grossing movie of all time? (not adjusted for inflation)",
+    questionText: "What is the highest grossing movie of all time?",
     answerOptions: ["Avengers: Endgame", "Titanic", "Avatar" ,"Barbie"],
     correctAnswer: "Avatar"
     },
@@ -149,7 +149,7 @@ const QUESTIONS = [
 },
 {
     questionText: "Which director is known for his distinctive visual and narrative style in films such as 'The Grand Budapest Hotel' and 'Moonrise Kingdom'?",
-    answerOptions: ["Wes Anderson", "Christopher Nolan", "Quentin Tarantino", "Steven Spielberg"],
+    answerOptions: ["Christopher Nolan", "Wes Anderson", "Quentin Tarantino", "Steven Spielberg"],
     correctAnswer: "Wes Anderson",
     img: "Images/Wes.jpg" 
 },
@@ -162,11 +162,6 @@ const QUESTIONS = [
     questionText: "Which movie is a modern musical romance set in Los Angeles?",
     answerOptions: ["Moulin Rouge!", "Chicago", "La La Land", "The Greatest Showman"],
     correctAnswer: "La La Land",
-},
-{
-    questionText: "Which movie is a 2015 American horror film directed by Robert Eggers?",
-    answerOptions: ["It", "The Conjuring", "The Babadook", "The Witch"],
-    correctAnswer: "The Witch",
 },
 {
     questionText: "Played by Jack Nicholson, What's the main character's name in the movie 'The Shining'?",
@@ -293,6 +288,7 @@ function handleTimeout() {
     replyEl.innerText = "Out of Time!";
     replyEl.style.color = 'red';
     incorrectSound.play(); 
+    addIncorrectX();
     incorrectAnswers++;
     setTimeout(() => {
     if (incorrectAnswers >= 3) {
@@ -324,12 +320,22 @@ function nextQuestionNumber() {
     questionNumber.innerText = `Question ${questionIndex + 1} of ${MAX_QUESTIONS}`;
 }
 
+function addIncorrectX() {
+    const board = document.getElementById('X-Board');
+    const x = document.createElement('span');
+    x.innerText = 'X';
+    x.className = 'incorrectX';
+    board.appendChild(x);
+}
+
 //function to START game
 function startGame() {
     shuffleArray(QUESTIONS);
     questionIndex = 0;
     incorrectAnswers = 0;
     score = 0;
+    const board = document.getElementById('X-Board');
+    board.innerText = '';
     timerEl.classList.remove('hidden');
     startButton.classList.add('hidden');
     const questionContainer = document.getElementById('game-container');
@@ -366,9 +372,12 @@ function showQuestion(index) {
     const questionImage = document.getElementById('question-image');
     if (question.img) {
         questionImage.src = question.img;
-        questionImage.classList.remove('hidden'); 
+        questionImage.classList.remove('hidden');
+        answerButtonsEl.style.flexDirection = 'row';
+        
     } else {
-        questionImage.classList.add('hidden'); 
+        questionImage.classList.add('hidden')
+        answerButtonsEl.style.flexDirection = 'column'; 
     }
 
     answerButtonsEl.innerHTML = '';
@@ -418,6 +427,7 @@ function handleAnswer(selectedAnswer) {
         replyEl.innerText = "Incorrect!";
         replyEl.style.color = 'red';
         incorrectSound.play();
+        addIncorrectX();
         incorrectAnswers++;
         if (incorrectAnswers >= 3) {
             endGame("lose");
@@ -451,11 +461,11 @@ function endGame(result) {
     scoreText.innerText = `${score} / ${MAX_QUESTIONS}`;
 //RESULT TEXT
     if (result === "lose") {
-        scoreText.innerText = `You lost! That's ${incorrectAnswers} incorrect answers...`;
+        scoreText.innerText = `You lost!\n That's ${incorrectAnswers} incorrect answers.`;
         scoreText.style.color = 'white';
         loseSound.play();
     } else {
-        scoreText.innerText = `Congratulations! Your score: ${score}/${MAX_QUESTIONS}`;
+        scoreText.innerText = `Congratulations!\n Your score: ${score}/${MAX_QUESTIONS}`;
         scoreText.style.color = 'white';
         winSound.play();
     }
