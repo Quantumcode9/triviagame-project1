@@ -32,7 +32,6 @@ As a user, I want the ability to...
 
 ## Psuedocode
 
--Initialize gameState  
 - Set up game. 
 - Create game questions
 - create game anwsers 
